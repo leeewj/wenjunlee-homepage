@@ -71,3 +71,57 @@ Every later push to `main` redeploys automatically.
 - If an existing record conflicts with the same hostname, delete it first.
 - The old `gh-pages` based `npm run deploy` script is unused here; it is kept only
   as a fallback for a GitHub Pages deploy.
+
+## Day-to-day editing
+
+The loop is: edit locally → look at it locally → commit → push. Cloudflare builds
+`main` on every push, so the push *is* the deploy.
+
+```bash
+npm run dev          # hot-reloading dev server; edit and watch it change
+```
+
+When it looks right:
+
+```bash
+./deploy.sh "what changed"   # typecheck + build + commit + push in one step
+```
+
+`deploy.sh` refuses to run if the local proxy (127.0.0.1:7890) is down, because
+this machine cannot reach GitHub directly. It also stops on a type error or a
+failed build, so broken code never reaches `main`.
+
+Doing it by hand is the same steps:
+
+```bash
+npm run typecheck && npm run build
+git add -A && git commit -m "what changed" && git push
+```
+
+### Where to change what
+
+- `content/*.md` — page text. Every `.md` becomes a command and a `#hash` route;
+  a new file needs no registration. `npm run build` regenerates
+  `src/generated/content.ts` from these, and that generated file is committed.
+- `src/` — terminal behaviour, theme, built-in commands (`src/apps/*.ts`, wired
+  up in `src/apps/index.ts`).
+- `public/` — `style.css`, fonts, favicon.
+
+### Verifying a deploy
+
+```bash
+curl -s https://wenjunlee.com/ | grep -oE 'assets/index-[A-Za-z0-9_-]+\.js'  # asset hash
+curl -o /dev/null -w '%{http_code}\n' https://wenjunlee.com/                 # 200
+```
+
+To roll back, use Workers & Pages → the project → Deployments → `⋯` → Rollback
+(instant), or `git revert <sha> && git push` to keep the history honest.
+
+### Notes
+
+- Editing `content/*.md` straight on github.com also works — the build regenerates
+  the manifest from the markdown. Editing `src/` on the web works too, but the
+  Pages build does not run `tsc` or the tests, so a type error can ship silently.
+  Prefer `./deploy.sh` locally for code changes.
+- Do not add a `CNAME` file; the custom domain lives in the Cloudflare dashboard.
+- Never lower `.node-version` below 22 (Vite 8 needs Node >= 20.19 / 22.12).
