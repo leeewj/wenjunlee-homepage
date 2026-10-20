@@ -123,13 +123,25 @@ export class Term {
     });
     this.cleanups.push(() => d3.dispose());
 
-    // Correct wide-glyph padding on every paint (see normalizeWideSpacing).
-    const d4 = this.xterm.onRender(() => {
-      // onRender fires while xterm is still writing rows; correcting the spans in
-      // the same tick would be overwritten by that paint.
-      requestAnimationFrame(() => this.normalizeWideSpacing());
-    });
-    this.cleanups.push(() => d4.dispose());
+    // Correct wide-glyph padding before the browser paints (see
+    // normalizeWideSpacing). xterm writes the row spans synchronously and then
+    // paints, so fixing them after the fact — onRender plus rAF — leaves roughly
+    // half the scrolling frames painted with the wrong padding, which shows up as
+    // a Chinese line jumping sideways while you scroll. MutationObserver
+    // callbacks run at the microtask checkpoint, which is still before the frame
+    // is painted, so the correction is never visible.
+    const screenEl = this.xterm.element?.querySelector('.xterm-screen');
+    if (screenEl) {
+      const mo = new MutationObserver(() => this.normalizeWideSpacing());
+      mo.observe(screenEl, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['style'],
+        characterData: true,
+      });
+      this.cleanups.push(() => mo.disconnect());
+    }
     // Glyph advances change once the webfonts land, which can re-introduce the
     // mismatch, so re-apply after they are ready.
     void document.fonts?.ready.then(() => this.normalizeWideSpacing());
