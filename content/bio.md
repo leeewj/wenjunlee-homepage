@@ -15,7 +15,7 @@ I earned a dual degree in Computer Science and Psychology and from East China No
 
 ## Contact
 
-- Email: 614208312@qq.com
+- Email: 000000000@qq.com
 - GitHub: [leeewj](https://github.com/leeewj)
 - Location: Nanjing, China
 

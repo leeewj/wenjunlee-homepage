@@ -6,7 +6,7 @@ export const manifest: Manifest = {
     {
       "slug": "bio",
       "title": "About",
-      "body": "# About\n\nI'm Wenjun Lee (李文俊), a master's student in Computer Technology at the [School of Computer Science, Nanjing University](https://cs.nju.edu.cn/).\n\nI earned a dual degree in Computer Science and Psychology and from East China Normal University. My current research explores reinforcement learning for agent memory, with broader interests in large language models, agents, and reinforcement learning.\n\n## Education\n\n- Nanjing University — Master's student in Computer Technology.\n- East China Normal University — Dual degree in Psychology and Computer Science.\n\n## 中文简介\n\n我是李文俊，目前在南京大学计算机学院攻读计算机技术硕士学位。本科毕业于华东师范大学，获心理学与计算机双学位。目前研究面向智能体记忆的强化学习方法，持续关注大语言模型、智能体与强化学习。\n\n## Contact\n\n- Email: 614208312@qq.com\n- GitHub: [leeewj](https://github.com/leeewj)\n- Location: Nanjing, China\n\n[Home](#index) · [Research](#research)",
+      "body": "# About\n\nI'm Wenjun Lee (李文俊), a master's student in Computer Technology at the [School of Computer Science, Nanjing University](https://cs.nju.edu.cn/).\n\nI earned a dual degree in Computer Science and Psychology and from East China Normal University. My current research explores reinforcement learning for agent memory, with broader interests in large language models, agents, and reinforcement learning.\n\n## Education\n\n- Nanjing University — Master's student in Computer Technology.\n- East China Normal University — Dual degree in Psychology and Computer Science.\n\n## 中文简介\n\n我是李文俊，目前在南京大学计算机学院攻读计算机技术硕士学位。本科毕业于华东师范大学，获心理学与计算机双学位。目前研究面向智能体记忆的强化学习方法，持续关注大语言模型、智能体与强化学习。\n\n## Contact\n\n- Email: 000000000@qq.com\n- GitHub: [leeewj](https://github.com/leeewj)\n- Location: Nanjing, China\n\n[Home](#index) · [Research](#research)",
       "path": "bio.md",
       "kind": "page",
       "apps": []
@@ -21,8 +21,8 @@ export const manifest: Manifest = {
     },
     {
       "slug": "index",
-      "title": "李文俊 614208312@qq.com",
-      "body": "# 李文俊 614208312@qq.com\n\n```plain\n▌   ▌       ▗        ▌\n▌   ▌▞▀▖▛▀▖ ▄ ▌ ▌▛▀▖ ▌  ▞▀▖▞▀▖\n▌ ▌ ▌▛▀▘▌ ▌ ▐ ▌ ▌▌ ▌ ▌  ▛▀▘▛▀▘\n▝▞ ▚▘▝▀▘▘ ▘▀▘ ▝▀▘▘ ▘ ▀▀▘▝▀▘▝▀▘\n```\n\n\n**Master's Student** · [School of Computer Science](https://cs.nju.edu.cn/) · [Nanjing University](https://www.nju.edu.cn/)\n**Computer Technology**\n\n> 👤 [Bio](#bio) · 🔬 [Research](#research)\n> 🐙 [GitHub](https://github.com/leeewj)\n>\n> Nanjing, China\n\n*I explore reinforcement learning for agent memory, with broader interests in LLMs, agents, and reinforcement learning.*\n\n- This page doubles as a shell.\n  Try: `bio`, `help`, `tree bin/ | less`.\n- Theme: follows your system (`theme system`).\n\nLast update: Mon Oct 19 2026",
+      "title": "李文俊 000000000@qq.com",
+      "body": "# 李文俊 000000000@qq.com\n\n```plain\n▌   ▌       ▗        ▌\n▌   ▌▞▀▖▛▀▖ ▄ ▌ ▌▛▀▖ ▌  ▞▀▖▞▀▖\n▌ ▌ ▌▛▀▘▌ ▌ ▐ ▌ ▌▌ ▌ ▌  ▛▀▘▛▀▘\n▝▞ ▚▘▝▀▘▘ ▘▀▘ ▝▀▘▘ ▘ ▀▀▘▝▀▘▝▀▘\n```\n\n\n**Master's Student** · [School of Computer Science](https://cs.nju.edu.cn/) · [Nanjing University](https://www.nju.edu.cn/)\n**Computer Technology**\n\n> 👤 [Bio](#bio) · 🔬 [Research](#research)\n> 🐙 [GitHub](https://github.com/leeewj)\n>\n> Nanjing, China\n\n*I explore reinforcement learning for agent memory, with broader interests in LLMs, agents, and reinforcement learning.*\n\n- This page doubles as a shell.\n  Try: `bio`, `help`, `tree bin/ | less`.\n- Theme: follows your system (`theme system`).\n\nLast update: Mon Oct 19 2026",
       "path": "index.md",
       "kind": "page",
       "apps": []
